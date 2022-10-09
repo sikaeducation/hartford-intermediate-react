@@ -1,5 +1,6 @@
-* What is conditional rendering in React components?
-* What does this render if `isOverdue` is `true`?
+> What is conditional rendering in React components?
+
+> What does this render if `isOverdue` is `true`?
 
 ```jsx
 {
@@ -7,7 +8,7 @@
 }
 ```
 
-* What does this render if `isOverdue` is `false`?
+> What does this render if `isOverdue` is `false`?
 
 ```jsx
 {
@@ -15,7 +16,7 @@
 }
 ```
 
-* What does this render if `isOverdue` is `true` and `daysRemaining` is 3?
+> What does this render if `isOverdue` is `true` and `daysRemaining` is 3?
 
 ```jsx
 {
@@ -25,7 +26,7 @@
 }
 ```
 
-* What does this render if `isOverdue` is `false` and `daysRemaining` is 3?
+> What does this render if `isOverdue` is `false` and `daysRemaining` is 3?
 
 ```jsx
 {

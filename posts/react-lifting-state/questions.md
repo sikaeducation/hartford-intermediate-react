@@ -1,12 +1,18 @@
-* Why would you pass a function as a component prop?
-* Describe how to change state in a parent component from a child component.
-* What is lifting state?
-* What is a side-effect?
-* How are side-effects handled in React?
-* What is `useEffect` for?
-* What are the parameters of `useEffect`?
+> Why would you pass a function as a component prop?
 
-* What is wrong with this code:
+> Describe how to change state in a parent component from a child component.
+
+> What is lifting state?
+
+> What is a side-effect?
+
+> How are side-effects handled in React?
+
+> What is `useEffect` for?
+
+> What are the parameters of `useEffect`?
+
+> What is wrong with this code:
 
 ```js
 useEffect(() => {

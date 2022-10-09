@@ -14,7 +14,7 @@ Teaching a Zoom chat with a bunch of black squares is exhausting. As a courtesy 
 
 ## Schedule
 
-The [current schedule](/schedule) is posted, but is just an approximation and will probably change based on performance and feedback. Expect a formal announcement at the start of each activity.
+The [current schedule](/schedule.md) is posted, but is just an approximation and will probably change based on performance and feedback. Expect a formal announcement at the start of each activity.
 
 ## Questions
 

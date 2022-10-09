@@ -1,9 +1,14 @@
-* What is a side-effect?
-* How are side-effects handled in React?
-* How are HTTP errors handled in React?
-* What is `useEffect` for?
-* What are the parameters of `useEffect`?
-* What is wrong with this code:
+> What is a side-effect?
+
+> How are side-effects handled in React?
+
+> How are HTTP errors handled in React?
+
+> What is `useEffect` for?
+
+> What are the parameters of `useEffect`?
+
+> What is wrong with this code:
 
 ```js
 useEffect(() => {
