@@ -1,35 +1,23 @@
 # Schedule
 
-## Monday
+## Thursday
 
 | Time | Activity |
 | --- | --- |
 | 9am | Course intro & Diagnostic |
-| 10:30am | Overview of Node & Express |
+| 10:30am | Course Overview |
 | 12pm | Lunch |
 | 1pm | Work Time |
-| 2pm | Lesson - Node |
+| 2pm | Lesson |
 | 3:30pm | Survey & Stand Down |
 
-## Tuesday
+## Friday
 
 | Time | Activity |
 | --- | --- |
 | 9am | Stand-up & Vocab |
 | 10am | Work Time |
-| 11am | Morning Lesson - Express |
-| 12pm | Lunch |
-| 1pm | Work Time |
-| 2pm | Lesson - Knex |
-| 3:30pm | Survey & Stand Down |
-
-## Wednesday
-
-| Time | Activity |
-| --- | --- |
-| 9am | Stand-up & Vocab |
-| 10am | Work Time |
-| 11am | Morning Lesson - Jest |
+| 11am | Morning Lesson |
 | 12pm | Lunch |
 | 1pm | Work Time |
 | 2pm | Course Review |

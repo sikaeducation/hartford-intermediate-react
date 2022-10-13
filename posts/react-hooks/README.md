@@ -43,5 +43,4 @@ Hooks follow 2 rules:
 
 ## Watch Out!
 
-* Hooks must always be called in the same order, which is why you can use them inside conditionals or loops.
-* `setState` functions don't automatically merge objects, use the object spread `...` operator to do this instead.
+* Hooks must always be called in the same order, which is why you can't use them inside conditionals or loops.

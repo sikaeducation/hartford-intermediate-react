@@ -9,8 +9,7 @@ I expect the following:
 * Fluency in JavaScript
 * Completion of course prework:
   * [JavaScript: Getting Started](https://www.pluralsight.com/courses/javascript-getting-started)
-  * [TypeScript: Getting Started](https://www.pluralsight.com/courses/getting-started-typescript)
-  * [Node.js: Getting Started](https://www.pluralsight.com/courses/nodejs-getting-started)
+  * [React: Getting Started](https://www.pluralsight.com/courses/react-js-getting-started)
 
 ## Course
 
@@ -36,7 +35,6 @@ I expect the following:
 * [Taking Screenshots](/posts/sika-screenshots)
 * [Naming Guidelines](/posts/naming-guidelines)
 * [How To Ask Questions](/posts/how-to-ask-questions)
-* [GitHub Codespaces](/posts/sika-github-codespaces)
 * [Codesandbox.io](/posts/sika-codesandbox)
 * [Build and Burn](/posts/build-and-burn)
 * [Discord Setup](/posts/sika-discord-setup)
