@@ -16,3 +16,4 @@ Submit work using the [submission form](https://forms.gle/Zhtg2utHYWUhQbCB7)
 ## Session Videos
 
 * [State & Hooks](https://youtu.be/mkYgxG7V8nk)
+* [Jest and RTL](https://youtu.be/gjkzyoE2KqI)
