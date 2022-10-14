@@ -39,7 +39,7 @@ import SomeComponent from "./SomeComponent"
 import { render, screen } from "@testing-library/react"
 
 test("Test name goes here", () => {
-  render(<SomeComponent>)
+  render(<SomeComponent />)
 
   const someElement = screen.getByRole("header")
 
