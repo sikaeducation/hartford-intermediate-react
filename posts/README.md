@@ -1,128 +1,125 @@
-# JSX
+# Testing React Components with Jest and RTL
 
-You can use basic DOM manipulation to put JavaScript values into a document. What if you want to include the values in the markup language itself? One way to do this is with a templating language and JSX is the most commonly used templating language in React.
+Testing React components is similar to testing anything with Testing Library and Jest DOM. All of the same queries and matchers are available. Since React uses JSX instead of DOM elements, React Testing Library adds a way to render JSX elements to a fake DOM and then query them.
 
-## Keyword Changes
+## Installation and Configuration
 
-JSX is similar to HTML except You can't use HTML keywords that are already JavaScript keywords, so the following keywords are changed:
+### Create React App
 
-* `class` becomes `className`
-* `for` becomes `htmlFor`
-* Neither HTML or JS comment syntax is supported, so comments are done with `{/* Comment here */}`
-* Self-closing tags must include the closing `/`
+If you're using Create React App, `jest`, `@testing-library/react`, `@testing-library/jest-dom`, and `@testing-library/user-event` are already installed and configured.
 
-## Including JavaScript
+Any file in any directory that ends in `.test.js` will be run when `npm test` is run.
 
-To put JavaScript variables in a JSX template, use the `{}` characters:
+### Existing React Apps
 
-```jsx
-const firstName = "Lucy"
-const template = <p>{firstName}</p>
+To set up testing for an existing React project, install the following dependencies:
+
+```bash
+npm i -D jest @testing-library/react @testing-library/jest-dom @testing-library/user-event
 ```
 
-This will render to the following HTML:
+Then define a testing script in the project's `package.json`:
 
-```jsx
-<p>Lucy</p>
-```
-
-You can also put any kind of JavaScript expression inside the braces:
-
-```jsx
-const getFirstName = () => "Lucy"
-const template = <p>{getFirstName()}</p>
-```
-
-```jsx
-const firstName = "Lucy"
-const template = <p>{`My name is ${firstName}`}</p>
-```
-
-```jsx
-const template = <p>{["l", "u", "c", "y"].join("")}</p>
-```
-
-This also works inside of attributes:
-
-```jsx
-const url = "https://wikipedia.org"
-const linkText = "Wikipedia"
-const template = <a href={url}>{linkText}</a>
-```
-
-Lastly, you can include any component by writing it like a self-closing HTML element:
-
-```jsx
-const Heading = () => <h2>Breaking News!</h2>
-const SomeArticle = () => <article><Heading /></article>
-```
-
-This renders to:
-
-```html
-<article>
-  <h2>Breaking News!</h2>
-</article>
-```
-
-## Using JSX in React
-
-Modern React components are functions that should return JSX. A typical component might look like this:
-
-```jsx
-const Image = ({ url, altText }) => {
-  return <img className="media image" src={url} alt={altText} />
+```json
+{
+  "scripts": {
+    "test": "jest src/**/*.test.js"
+  }
 }
 ```
 
-JSX can also be saved in variables and returned from normal functions:
+## Creating Tests
+
+To create a test, create a file ending in `.test.js`. By convention, it's common to have one test file per component file, and they should both be named the same as the component. For example, a component called `LoginForm` should be in a file called `LoginForm.js` and have a test file called `LoginForm.test.js`. There are no requirements for where any of these files live in the folder hierarchy.
+
+A simple test file imports the component being tested, as well as testing functions as needed:
 
 ```jsx
-const Images = ({ images }) => {
-  const $images = images.map(image => {
-    return <li><Image url={image.url} altText={image.altText} /></li>
-  })
+import SomeComponent from "./SomeComponent"
+import { render, screen } from "@testing-library/react"
 
-  return <ul>{$images}</li>
-}
+test("Test name goes here", () => {
+  render(<SomeComponent />)
+
+  const someElement = screen.getByRole("header")
+
+  expect(someElement).toBeInTheDocument()
+})
 ```
+
+It's not necessary to import `jest`, `test`, `describe`, `it`, `beforeAll`, `beforeEach`, or `expect`. They will added to the environment by Jest when running the tests.
+
+## Basic Parts of React Component Test
+
+The two most critical parts of React Testing Library are `render` and `screen`.
+
+### `render`
+
+Components are added to the test DOM with with the `render` method:
+
+```jsx
+render(<p>Hi!</p>)
+render(<SomeComponent someProp="Some Value" />
+```
+
+Note that you can pass elements, components, and even entire hierarchies into `render`:
+
+```jsx
+render(
+  <SomeContext.Provider value="Hi!">
+    <div>
+      <SomeComponent someProp="Aloha!" />
+    </div>
+  </SomeContext.Provider>
+)
+```
+
+### `screen`
+
+DOM elements are retrieved by querying `screen`:
+
+```jsx
+const element = screen.findByRole("Heading")
+```
+
+This element is a regular DOM element rather than a component instance. Rather than running assertions on parts of the element, it's common to use the Jest matchers that are added by `@testing-library/jest-dom`.
+
+## Rerendering
+
+Occasionally, it may be useful to test how a component re-renders. To do this, destructure the `rerender` function out of the original call to `render`. This `rerender` function accepts a new JSX element.
+
+```jsx
+import { render, screen, waitFor } from "@testing-library/react"
+import { click } from "@testing-library/user-event"
+import SomeComponent from "./SomeComponent"
+
+test("loads and displays greeting", async () => {
+  const { rerender } = render(<SomeComponent url="/greeting" />)
+
+  expect(screen.getByRole('heading')).toHaveTextContent('hello there')
+
+  rerender(<SomeComponent url="/greeting" />)
+
+  expect(screen.getByRole('heading')).toHaveTextContent('hello there')
+})
+```
+
+## Running Tests
+
+To run tests, run `npm test`. The `jest` test runner will automatically keep running and wait for changes and rerun the tests in response.
 
 ## Watch Out!
 
-* When using braces for attributes, note that the braces replace the quotes. For example, a link with an `href` attribute would look like `<a href={url}></a>`, not `<a href="{url}"></a>`
-* It's possible to nest `{}` in JSX. The rule is that `{}` creates a new block for JavaScript expressions, and opening a new element within one of those  goes back into JSX. For example:
-
-```jsx
-<div>
-{
-  someValue && <ElementNameHere attribute={someAttribute} />
-}
-</div>
-```
-
-* JSX expressions always need to run one and only one top-level element. This is invalid:
-
-```jsx
-const SomeComponent = () => (
-  <p>Hello,</p>
-  <p>World!</p>
-)
-```
-
-If there are no suitable elements to wrap them in, you can use empty elements called fragments instead:
-
-```jsx
-const SomeComponent = () => (
-  <>
-    <p>Hello,</p>
-    <p>World!</p>
-  </>
-)
-```
+* `@testing-library/jest-dom` (which adds DOM matchers to Jest) is automatically imported into each test with Create React App, but must be added if you're configuring testing manually.
+* `render` is a function, `screen` is an object
+* You only need to `waitFor` one thing, even if you're waiting for multiple changes to render.
+* Async tests can either use `async`/`await` or just return a promise, but shouldn't do both.
+* Within tests, always use `async`/`await` rather than `.then`/`.catch`. The enhanced readability of error handling in `.then`/`.catch` chains isn't useful in tests since all errors are automatically handled by the testing framework.
 
 ## Additional Resources
 
 | Resource | Description |
 | --- | --- |
-| [Introducing JSX](https://reactwithhooks.netlify.app/docs/introducing-jsx.html) | React's guide to JSX |
-| [Video: JSX](https://www.youtube.com/watch?v=9U3IhLAnSxM&t=1344s) | React Hooks Crash Course: JSX |
+| [CRA: Running Tests](https://create-react-app.dev/docs/running-tests/) | Create React App's guide to testing |
+| [Configuring Jest](https://jestjs.io/docs/configuration) | Guide to configuring Jest |
+| [Common Mistakes With React Testing Library](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library) | Kent C. Dodds' blog post on React Testing Library usage |
