@@ -17,3 +17,5 @@ Submit work using the [submission form](https://forms.gle/Zhtg2utHYWUhQbCB7)
 
 * [State & Hooks](https://youtu.be/mkYgxG7V8nk)
 * [Jest and RTL](https://youtu.be/gjkzyoE2KqI)
+* [Context](https://youtu.be/DC9aGRBFrx8)
+* [React Performance](https://youtu.be/U0X8t5-n70U)
