@@ -3,7 +3,6 @@
 * [Dev Tools](/posts/react-dev-tools)
   * [Tutorial](https://react-devtools-tutorial.vercel.app/)
 * [Hooks](/posts/react-hooks)
-  * [Questions](/posts/react-hooks/questions.md)
 * [Context](/posts/react-context-intro)
   * [Questions](/posts/react-context-intro/questions.md)
   * [Simple Context 1](https://github.com/sikaeducation/simple-react-context-1)
