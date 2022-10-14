@@ -22,6 +22,7 @@
 * [Test Library](/posts/testing-library-intro)
 * [Testing User Actions](/posts/testing-user-actions-jest)
 * [Testing React Components](/posts/testing-react-components)
+* [What To Test](/posts/what-to-test-react)
 
 ### Videos
 
