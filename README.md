@@ -1,21 +1,3 @@
-# Intermediate React
+# hartford-intermediate-react
 
-In this course, you'll learn how to:
-
-* Apply component composition and performance improvement techniques
-
-Please refer to the [Course Handbook](/handbook) for information about how to make the most of this course.
-
-Submit work using the [submission form](https://forms.gle/Zhtg2utHYWUhQbCB7)
-
-## Course Content
-
-* [Basic React](/basic-react)
-* [Advanced React](/advanced-react)
-
-## Session Videos
-
-* [State & Hooks](https://youtu.be/mkYgxG7V8nk)
-* [Jest and RTL](https://youtu.be/gjkzyoE2KqI)
-* [Context](https://youtu.be/DC9aGRBFrx8)
-* [React Performance](https://youtu.be/U0X8t5-n70U)
+Retired 2026-09-22. The standards, sequences, and package record from this repo are in `sikaeducation/bank` under `curriculum/`; the readings it copied are in `sikaeducation/posts`. The full tree is in this repo's history before this commit.
